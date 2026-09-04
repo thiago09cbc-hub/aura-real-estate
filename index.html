@@ -9,9 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 
-  /* ==========================================================
-     VARIABLES
-  ========================================================== */
   :root{
     --dorado:        #D8AF32;
     --dorado-claro:  #E0B936;
@@ -32,9 +29,6 @@
     --font-sans:  'Poppins', sans-serif;
   }
 
-  /* ==========================================================
-     RESET
-  ========================================================== */
   *, *::before, *::after{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
@@ -52,9 +46,6 @@
   button{ cursor:pointer; }
   :focus-visible{ outline:2px solid var(--dorado); outline-offset:3px; }
 
-  /* ==========================================================
-     LOGO (SVG reutilizable — reemplaza al archivo de logo)
-  ========================================================== */
   .logo-defs{ position:absolute; width:0; height:0; overflow:hidden; }
   .logo-mark path,
   .logo-mark rect,
@@ -67,9 +58,6 @@
   .logo{ width:110px; height:110px; color:var(--dorado); flex-shrink:0; }
   .logo--sm{ width:74px; height:74px; }
 
-  /* ==========================================================
-     BOTONES
-  ========================================================== */
   .btn{
     display:inline-block;
     border:none;
@@ -84,9 +72,6 @@
   .btn-dorado{ background:var(--dorado); color:#000; }
   .btn-azul{ background:var(--azul-oscuro); color:var(--blanco); }
 
-  /* ==========================================================
-     PÁGINA — INICIO
-  ========================================================== */
   .hero{
     position:relative;
     min-height:100vh;
@@ -141,9 +126,6 @@
     max-width:640px;
   }
 
-  /* ==========================================================
-     PÁGINA — PROPIEDADES
-  ========================================================== */
   .propiedades{
     display:flex;
     min-height:100vh;
@@ -252,10 +234,6 @@
     padding:14px;
   }
 
-  /* ==========================================================
-     COMPONENTES COMPARTIDOS DE LOS MODALES
-     (login, confirmar pago, pago exitoso, pago no procesado)
-  ========================================================== */
   .modal-overlay{
     position:fixed;
     inset:0;
@@ -371,9 +349,7 @@
   }
   .pago-acciones .btn{ width:100%; }
 
-  /* ==========================================================
-     RESPONSIVE — TABLET
-  ========================================================== */
+  
   @media (max-width:1024px){
     .sidebar{
       width:100%;
@@ -390,9 +366,7 @@
     .propiedades-grid{ grid-template-columns:1fr; }
   }
 
-  /* ==========================================================
-     RESPONSIVE — MÓVIL
-  ========================================================== */
+  
   @media (max-width:640px){
     .hero-nav{
       grid-template-columns:1fr;
@@ -415,9 +389,7 @@
 </head>
 <body>
 
-<!-- ==========================================================
-     DEFINICIÓN DEL LOGO (usado con <use> en cada página)
-========================================================== -->
+
 <svg class="logo-defs" aria-hidden="true">
   <symbol id="logo-aura" viewBox="0 0 120 120">
     <!-- techo que se curva hacia la espiral -->
@@ -441,9 +413,7 @@
 
 <main>
 
-  <!-- ==========================================================
-       PÁGINA — INICIO
-  ========================================================== -->
+ 
   <section id="inicio" class="hero">
     <header class="hero-nav">
       <div class="logo-wrap">
@@ -467,9 +437,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================
-       PÁGINA — PROPIEDADES
-  ========================================================== -->
   <section id="propiedades" class="propiedades">
     <aside class="sidebar">
       <svg class="logo logo-mark logo--sm"><use href="#logo-aura"></use></svg>
@@ -542,10 +509,7 @@
 
 </main>
 
-<!-- ==========================================================
-     MODAL — INICIAR SESIÓN
-     Se abre al tocar "Reservar" en una propiedad
-========================================================== -->
+
 <div class="modal-overlay" id="modal-login">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Iniciar sesión">
     <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
@@ -566,10 +530,7 @@
   </div>
 </div>
 
-<!-- ==========================================================
-     MODAL — CONFIRMAR PAGO (número de tarjeta)
-     Se abre después de iniciar sesión correctamente
-========================================================== -->
+
 <div class="modal-overlay" id="modal-pago-datos">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Confirmar pago">
     <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
@@ -586,9 +547,7 @@
   </div>
 </div>
 
-<!-- ==========================================================
-     MODAL — PAGO EXITOSO
-========================================================== -->
+
 <div class="modal-overlay" id="modal-pago-exitoso">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Pago exitoso">
     <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
@@ -603,9 +562,7 @@
   </div>
 </div>
 
-<!-- ==========================================================
-     MODAL — PAGO NO PROCESADO
-========================================================== -->
+
 <div class="modal-overlay" id="modal-pago-fallido">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Pago no procesado">
     <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
