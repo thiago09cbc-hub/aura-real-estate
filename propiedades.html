@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA REAL ESTATE — Propiedades</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="propiedades.css">
+</head>
+<body>
+
+<section class="propiedades">
+  <aside class="sidebar">
+    <img src="assets/logo.png" alt="AURA REAL ESTATE" class="logo logo--sm">
+    <nav class="sidebar-nav" aria-label="Navegación de propiedades">
+      <a href="#destacadas" class="activo">Propiedades<br>destacadas</a>
+      <a href="#" data-abrir-modal="modal-agendar-cita">Agendar cita</a>
+      <a href="#">Catalogo de propiedades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </aside>
+
+  <div class="contenido">
+
+    <!-- ==========================================================
+         SECCIÓN — PROPIEDADES DESTACADAS
+    ========================================================== -->
+    <section id="destacadas">
+      <div class="buscador">Buscar propiedades</div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="label">Propiedades</div>
+          <div class="valor">850+</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Clientes diarios</div>
+          <div class="valor">12K</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Ventas(M)</div>
+          <div class="valor">2.8M</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Valoracion</div>
+          <div class="valor">98%</div>
+        </div>
+      </div>
+
+      <div class="propiedades-grid">
+        <article class="propiedad-card">
+          <img class="propiedad-foto" src="assets/propiedad-miami.jpg" alt="Departamento en Miami, Florida">
+          <div class="propiedad-info">
+            <div>
+              <p class="propiedad-ubicacion">Miami, Florida</p>
+              <p class="propiedad-precio">€12.300.500</p>
+            </div>
+            <div class="propiedad-detalle">
+              <span>350 M²</span>
+              <span>4 Hab.</span>
+            </div>
+          </div>
+          <button type="button" class="btn btn-dorado btn-reservar" data-propiedad="Miami, Florida">Reservar</button>
+        </article>
+
+        <article class="propiedad-card">
+          <img class="propiedad-foto" src="assets/propiedad-lugano.jpg" alt="Departamento en Lugano, Suiza">
+          <div class="propiedad-info">
+            <div>
+              <p class="propiedad-ubicacion">Lugano, Suiza</p>
+              <p class="propiedad-precio">€7.860.850</p>
+            </div>
+            <div class="propiedad-detalle">
+              <span>500 M²</span>
+              <span>4 Hab.</span>
+            </div>
+          </div>
+          <button type="button" class="btn btn-dorado btn-reservar" data-propiedad="Lugano, Suiza">Reservar</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECCIÓN — CONTACTO
+    ========================================================== -->
+    <section id="contacto" class="seccion-secundaria">
+      <h2 class="seccion-titulo">Contacto</h2>
+      <p class="seccion-subtitulo">¿Tenés dudas o querés más información? Escribinos, te respondemos a la brevedad.</p>
+
+      <div class="contacto-grid">
+        <div class="stat-card">
+          <div class="label">Teléfono</div>
+          <div class="valor-chico">+54 11 5555-0100</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Correo</div>
+          <div class="valor-chico">contacto@aurarealestate.com</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Oficina</div>
+          <div class="valor-chico">Av. Libertador 1450, CABA</div>
+        </div>
+      </div>
+
+      <div class="formulario">
+        <div class="formulario-grid">
+          <input class="input" type="text" placeholder="Nombre y apellido">
+          <input class="input" type="email" placeholder="Correo">
+        </div>
+        <textarea class="input textarea" rows="4" placeholder="Tu mensaje"></textarea>
+        <button type="button" class="btn btn-dorado">Enviar mensaje</button>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<!-- ==========================================================
+     MODAL — AGENDAR CITA
+========================================================== -->
+<div class="modal-overlay" id="modal-agendar-cita">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Agendar una cita">
+    <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <h2 class="login-titulo">Agendar una cita</h2>
+    <p class="modal-propiedad">Coordiná una visita con uno de nuestros asesores.</p>
+
+    <div class="campo">
+      <input class="input" type="text" placeholder="Nombre y apellido">
+      <input class="input" type="email" placeholder="Correo">
+      <input class="input" type="tel" placeholder="Teléfono">
+      <input class="input" type="date">
+      <textarea class="input textarea" rows="3" placeholder="Contanos qué propiedad te interesa o cualquier comentario"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-dorado btn-login" data-cerrar-modal>Confirmar cita</button>
+  </div>
+</div>
+
+<!-- ==========================================================
+     MODAL — INICIAR SESIÓN
+========================================================== -->
+<div class="modal-overlay" id="modal-login">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Iniciar sesión">
+    <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <div class="avatar"><div class="avatar-inner"></div></div>
+    <h2 class="login-titulo">Iniciar Sesion</h2>
+    <p class="modal-propiedad"></p>
+
+    <div class="campo">
+      <input class="input" type="email" id="input-correo" placeholder="Correo" minlength="10">
+      <input class="input" type="password" id="input-clave" placeholder="Contraseña" minlength="10">
+    </div>
+
+    <button type="button" class="btn btn-dorado btn-login" id="btn-login">Iniciar Sesion</button>
+    <a href="#" class="link-dorado">¿Olvidaste tu contraseña?</a>
+    <p class="error" id="login-longitud" hidden>La cuenta y la contraseña deben tener al menos 10 caracteres.</p>
+    <p class="error" id="login-error" hidden>Correo o contraseña incorrectos. Inténtalo<br>nuevamente.</p>
+    <p class="ayuda-demo">Cuenta y contraseña: mínimo 10 caracteres.<br>Demo: demo@aura.com / demo123456<br>Modo demo: solo "3" en ambos campos = acceso rápido · solo "4" = error</p>
+  </div>
+</div>
+
+<!-- ==========================================================
+     MODAL — CONFIRMAR PAGO (número de tarjeta)
+     Se abre después de iniciar sesión correctamente
+========================================================== -->
+<div class="modal-overlay" id="modal-pago-datos">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Confirmar pago">
+    <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <h2 class="login-titulo">Confirmar pago</h2>
+    <p class="modal-propiedad"></p>
+
+    <div class="campo">
+      <input class="input" type="text" id="input-tarjeta" inputmode="numeric" placeholder="Número de tarjeta">
+    </div>
+
+    <button type="button" class="btn btn-dorado btn-login" id="btn-pagar">Pagar</button>
+    <p class="error" id="tarjeta-error" hidden>Ingresá solo números: todo &laquo;1&raquo; simula un pago exitoso, todo &laquo;0&raquo; simula un pago rechazado.</p>
+    <p class="ayuda-demo">Modo demo: usá solo 1 (pago exitoso) o solo 0 (pago no procesado)</p>
+  </div>
+</div>
+
+<!-- ==========================================================
+     MODAL — PAGO EXITOSO
+========================================================== -->
+<div class="modal-overlay" id="modal-pago-exitoso">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Pago exitoso">
+    <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <div class="pago-titulo-wrap">
+      <p class="pago-titulo pago-titulo--exito">Pago exitoso</p>
+    </div>
+    <p class="modal-propiedad"></p>
+    <p class="pago-nota">Tu reserva quedó confirmada. Te contactaremos para coordinar los próximos pasos.</p>
+    <div class="pago-acciones">
+      <button type="button" class="btn btn-dorado" data-cerrar-modal>Listo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================
+     MODAL — PAGO NO PROCESADO
+========================================================== -->
+<div class="modal-overlay" id="modal-pago-fallido">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Pago no procesado">
+    <button type="button" class="modal-cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+    <div class="pago-titulo-wrap">
+      <p class="pago-titulo">Pago no procesado</p>
+    </div>
+
+    <div class="pago-opciones">
+      <p class="pago-opcion-accion" data-abrir-modal="modal-pago-datos">intentar nuevamente</p>
+      <p class="pago-opcion-accion" data-abrir-modal="modal-pago-datos">Usar otra tarjeta</p>
+      <p>Pagar mediante transferencia</p>
+    </div>
+
+    <p class="pago-nota">Esta propiedad tiene alta demanda. Podés reservarla<br>durante 24 horas con una seña menor.</p>
+
+    <div class="pago-acciones">
+      <button type="button" class="btn btn-dorado" data-abrir-modal="modal-pago-datos">RESERVAR AHORA</button>
+      <button type="button" class="btn btn-azul" data-cerrar-modal>AHORA NO</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var overlays = document.querySelectorAll('.modal-overlay');
+
+    function abrirModal(id){
+      overlays.forEach(function(m){ m.classList.remove('abierto'); });
+      var modal = document.getElementById(id);
+      if(modal){ modal.classList.add('abierto'); }
+      document.body.classList.add('modal-activo');
+    }
+
+    function cerrarModales(){
+      overlays.forEach(function(m){ m.classList.remove('abierto'); });
+      document.body.classList.remove('modal-activo');
+    }
+
+    // Al tocar "Reservar" en una propiedad se abre el login,
+    // mostrando qué propiedad se está reservando.
+    document.querySelectorAll('.btn-reservar').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var propiedad = btn.dataset.propiedad || '';
+        var texto = propiedad ? 'Reservando: ' + propiedad : '';
+        document.querySelectorAll('.modal-propiedad').forEach(function(el){ el.textContent = texto; });
+        document.getElementById('login-error').hidden = true;
+        document.getElementById('login-longitud').hidden = true;
+        abrirModal('modal-login');
+      });
+    });
+
+    // Botones/enlaces que abren otro modal (ej: reintentar pago)
+    document.querySelectorAll('[data-abrir-modal]').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        document.getElementById('tarjeta-error').hidden = true;
+        document.getElementById('input-tarjeta').value = '';
+        abrirModal(btn.dataset.abrirModal);
+      });
+    });
+
+    // Botones que cierran el modal actual
+    document.querySelectorAll('[data-cerrar-modal]').forEach(function(btn){
+      btn.addEventListener('click', cerrarModales);
+    });
+
+    // Cerrar al hacer click fuera del cuadro (sobre el fondo difuminado)
+    overlays.forEach(function(overlay){
+      overlay.addEventListener('click', function(e){
+        if(e.target === overlay){ cerrarModales(); }
+      });
+    });
+
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ cerrarModales(); }
+    });
+
+    // Validación del login (usuario de prueba)
+    var CREDENCIAL_DEMO = { correo: 'demo@aura.com', clave: 'demo123456' };
+    document.getElementById('btn-login').addEventListener('click', function(){
+      var correo = document.getElementById('input-correo').value.trim();
+      var clave = document.getElementById('input-clave').value;
+      var error = document.getElementById('login-error');
+      var avisoLongitud = document.getElementById('login-longitud');
+
+      if(correo.length < 10 || clave.length < 10){
+        avisoLongitud.hidden = false;
+        error.hidden = true;
+        return;
+      }
+      avisoLongitud.hidden = true;
+
+      var soloTres = /^3+$/.test(correo) && /^3+$/.test(clave);
+      var soloCuatro = /^4+$/.test(correo) && /^4+$/.test(clave);
+      var credencialValida = correo.toLowerCase() === CREDENCIAL_DEMO.correo && clave === CREDENCIAL_DEMO.clave;
+
+      if(soloCuatro){
+        error.hidden = false;
+      } else if(soloTres || credencialValida){
+        error.hidden = true;
+        document.getElementById('tarjeta-error').hidden = true;
+        document.getElementById('input-tarjeta').value = '';
+        abrirModal('modal-pago-datos');
+      } else {
+        error.hidden = false;
+      }
+    });
+
+    // Validación del número de tarjeta (modo demo)
+    document.getElementById('btn-pagar').addEventListener('click', function(){
+      var valor = document.getElementById('input-tarjeta').value.replace(/\s+/g, '');
+      var error = document.getElementById('tarjeta-error');
+      if(/^1+$/.test(valor)){
+        error.hidden = true;
+        abrirModal('modal-pago-exitoso');
+      } else if(/^0+$/.test(valor)){
+        error.hidden = true;
+        abrirModal('modal-pago-fallido');
+      } else {
+        error.hidden = false;
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
