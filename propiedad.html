@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalle de propiedad — Aura Real Estate</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/propiedad.css">
+</head>
+<body data-page="propiedad">
+
+<header id="site-header"></header>
+
+<main class="container section">
+  <div id="prop-detalle"></div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/app.js"></script>
+
+<!-- Lógica que arma el detalle de la propiedad elegida en propiedades.html -->
+<script>
+(function(){
+
+  var ICONS = {
+    ruler: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 L20 4"/><path d="M4 20 L4 15"/><path d="M4 20 L9 20"/><path d="M20 4 L20 9"/><path d="M20 4 L15 4"/></svg>',
+    floorplan: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 L6 19 L18 19 L18 10"/><path d="M10 19 L10 14 L14 14 L14 19"/></svg>',
+    rooms: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M12 4 L12 20"/><path d="M4 12 L20 12"/></svg>',
+    bath: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 L21 12"/><path d="M4 12 L4 15 A5 5 0 0 0 9 20 L15 20 A5 5 0 0 0 20 15 L20 12"/><path d="M6 12 L6 7 A2 2 0 0 1 9 5.2"/></svg>',
+    toilet: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 L16 4 L16 9 L8 9 Z"/><path d="M7 9 L17 9 L17 13 A5 6 0 0 1 12 19 A5 6 0 0 1 7 13 Z"/></svg>',
+    garage: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16 L5.5 10 L18.5 10 L20 16"/><path d="M4 16 L20 16 L20 19 L4 19 Z"/><path d="M7 19 L7 21"/><path d="M17 19 L17 21"/></svg>',
+    bed: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 L3 10 A2 2 0 0 1 5 8 L19 8 A2 2 0 0 1 21 10 L21 19"/><path d="M3 15 L21 15"/><path d="M6 15 L6 12 L10 12 L10 15"/><path d="M3 19 L3 21"/><path d="M21 19 L21 21"/></svg>',
+    calendar: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9 L20 9"/><path d="M8 3 L8 6"/><path d="M16 3 L16 6"/></svg>',
+    building: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 7 L9.01 7"/><path d="M15 7 L15.01 7"/><path d="M9 11 L9.01 11"/><path d="M15 11 L15.01 11"/><path d="M9 15 L9.01 15"/><path d="M15 15 L15.01 15"/></svg>',
+    credito: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10 L21 10"/><path d="M7 14 L11 14"/></svg>',
+    expensas: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 L18 3 L18 21 L15 19 L12 21 L9 19 L6 21 Z"/><path d="M9 8 L15 8"/><path d="M9 12 L15 12"/></svg>',
+    whatsapp: '<svg class="prop-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20z"/><path d="M9 7.5c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .6.5.2.5.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.1.1-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3 0 .2 0 1-.4 1.4-.3.5-1.5 1-2.5 1-2.8-.1-5.9-2.1-6.9-4.9-.2-.5-.3-1-.3-1.5 0-.7.4-1.2.6-1.4z"/></svg>',
+    phone: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 L9.5 3 L11 7.5 L8.8 9.2 A13 13 0 0 0 14.8 15.2 L16.5 13 L21 14.5 L21 18 A2 2 0 0 1 19 20 C10.7 20 4 13.3 4 5 A2 2 0 0 1 6 3 Z"/></svg>',
+    mail: '<svg class="prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 6 L12 13 L21 6"/></svg>'
+  };
+
+  function statItem(icon, valor, label){
+    return '<div class="prop-stat-item">' + ICONS[icon] +
+      '<div><span class="prop-stat-valor">' + valor + '</span><span class="prop-stat-label">' + label + '</span></div></div>';
+  }
+
+  function featureItem(icon, label, valor){
+    if(valor === undefined || valor === null || valor === '') return '';
+    return '<div class="prop-feature-item">' + ICONS[icon] +
+      '<span>' + label + ': </span><b>' + valor + '</b></div>';
+  }
+
+  function listaHtml(items){
+    if(!items || !items.length) return '';
+    return '<ul>' + items.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>';
+  }
+
+  var datos = null;
+  try { datos = JSON.parse(sessionStorage.getItem('aura_propiedad_seleccionada')); } catch(e){ datos = null; }
+
+  var cont = document.getElementById('prop-detalle');
+  if(!cont) return;
+
+  if(!datos || !datos.ubicacion){
+    cont.innerHTML =
+      '<div class="prop-vacio">' +
+        '<p>Todavía no elegiste ninguna propiedad.</p>' +
+        '<a class="btn btn-dorado" href="propiedades.html">Ver propiedades</a>' +
+      '</div>';
+    return;
+  }
+
+  document.title = datos.titulo ? (datos.titulo + ' — Aura Real Estate') : (datos.ubicacion + ' — Aura Real Estate');
+
+  var telLimpio = (datos.telefono || '').replace(/[^0-9+]/g, '');
+  var inicial = (datos.agente && datos.agente.nombre) ? datos.agente.nombre.charAt(0) : 'A';
+
+  cont.innerHTML =
+    '<div class="prop-detalle-wrap">' +
+      '<a class="prop-volver" href="propiedades.html">&larr; Volver a propiedades</a>' +
+
+      '<div class="prop-hero"><img class="prop-hero-img" src="' + (datos.imagen || '') + '" alt="' + datos.ubicacion + '"></div>' +
+
+      '<div class="prop-detalle-grid">' +
+
+        '<div class="prop-detalle-main">' +
+          '<span class="prop-venta-badge">' + (datos.venta || 'Venta') + '</span>' +
+          '<h1 class="prop-titulo">' + (datos.titulo || ('Propiedad en ' + datos.ubicacion)) + '</h1>' +
+          '<p class="prop-ubicacion-line">' + datos.ubicacion + '</p>' +
+
+          '<div class="prop-descripcion" id="prop-descripcion">' +
+            '<h2>Descripción</h2>' +
+            (datos.descripcionTitulo ? '<p class="prop-descripcion-titulo">' + datos.descripcionTitulo + '</p>' : '') +
+            '<p class="prop-descripcion-texto" id="prop-descripcion-texto">' + (datos.descripcion || '') + '</p>' +
+            '<button type="button" class="prop-ver-mas" id="prop-toggle-descripcion">Ver más +</button>' +
+          '</div>' +
+
+          '<div class="prop-features">' +
+            '<div class="prop-features-grid">' +
+              featureItem('ruler', 'Superficie total', datos.m2Totales ? datos.m2Totales + ' m²' : '') +
+              featureItem('floorplan', 'Superficie cubierta', datos.m2Cubiertos ? datos.m2Cubiertos + ' m²' : '') +
+              featureItem('floorplan', 'Superficie semicubierta', datos.m2Semicubiertos ? datos.m2Semicubiertos + ' m²' : '') +
+              featureItem('rooms', 'Ambientes', datos.ambientes) +
+              featureItem('bath', 'Baños', datos.banos) +
+              featureItem('toilet', 'Toilets', datos.toilets) +
+              featureItem('bed', 'Dormitorios', datos.dormitorios) +
+              featureItem('garage', 'Cocheras', datos.cocheras) +
+              featureItem('calendar', 'Antigüedad', datos.antiguedad ? datos.antiguedad + ' años' : '') +
+              featureItem('expensas', 'Expensas', datos.expensas) +
+              featureItem('credito', 'Apto crédito', datos.aptoCredito) +
+              featureItem('building', 'Pisos de la propiedad', datos.pisos) +
+            '</div>' +
+          '</div>' +
+
+          '<div class="prop-info-adicional" id="prop-info-adicional">' +
+            '<div class="prop-info-columna">' +
+              (datos.servicios && datos.servicios.length ? '<h3>Servicios</h3>' + listaHtml(datos.servicios) : '') +
+              (datos.ambientesLista && datos.ambientesLista.length ? '<h3>Ambientes</h3>' + listaHtml(datos.ambientesLista) : '') +
+            '</div>' +
+            '<div class="prop-info-columna">' +
+              (datos.amenities && datos.amenities.length ? '<h3>Amenities</h3>' + listaHtml(datos.amenities) : '') +
+              (datos.caracteristicas && datos.caracteristicas.length ? '<h3>Características</h3>' + listaHtml(datos.caracteristicas) : '') +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="prop-ver-mas" id="prop-toggle-info">Ocultar -</button>' +
+        '</div>' +
+
+        '<aside class="prop-detalle-sidebar">' +
+          '<div class="prop-precio-card">' +
+            '<span class="prop-venta-badge">' + (datos.venta || 'Venta') + '</span>' +
+            '<p class="prop-precio">' + (datos.precio || '') + '</p>' +
+            (datos.expensas ? '<p class="prop-expensas">Expensas: ' + datos.expensas + '</p>' : '') +
+            '<div class="prop-stats-grid">' +
+              (datos.m2Totales ? statItem('ruler', datos.m2Totales + ' M²', 'Totales') : '') +
+              (datos.m2Cubiertos ? statItem('floorplan', datos.m2Cubiertos + ' M²', 'Cubiertos') : '') +
+              (datos.ambientes ? statItem('rooms', datos.ambientes, 'Ambientes') : '') +
+              (datos.banos ? statItem('bath', datos.banos, 'Baños') : '') +
+              (datos.toilets ? statItem('toilet', datos.toilets, 'Toilet') : '') +
+              (datos.cocheras ? statItem('garage', datos.cocheras, 'Cocheras') : '') +
+              (datos.dormitorios ? statItem('bed', datos.dormitorios, 'Dormitorios') : '') +
+              (datos.antiguedad ? statItem('calendar', datos.antiguedad + ' años', 'Antigüedad') : '') +
+            '</div>' +
+          '</div>' +
+
+          '<div class="prop-contacto-card">' +
+            '<h3 class="prop-contacto-titulo">Contacto</h3>' +
+            '<div class="prop-contacto-iconos">' +
+              '<a class="prop-icono-btn prop-icono-btn--whatsapp" href="https://wa.me/' + telLimpio + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + ICONS.whatsapp + '</a>' +
+              '<a class="prop-icono-btn" href="tel:' + telLimpio + '" aria-label="Llamar">' + ICONS.phone + '</a>' +
+              '<a class="prop-icono-btn" href="mailto:' + (datos.email || '') + '" aria-label="Email">' + ICONS.mail + '</a>' +
+            '</div>' +
+
+            (datos.agente ? (
+              '<div class="prop-agente">' +
+                '<div class="prop-agente-avatar">' + inicial + '</div>' +
+                '<div><p class="prop-agente-nombre">' + datos.agente.nombre + '</p><p class="prop-agente-agencia">' + datos.agente.agencia + '</p></div>' +
+              '</div>' +
+              (datos.agente.matricula ? '<p class="prop-corredores">' + datos.agente.matricula + '</p>' : '')
+            ) : '') +
+
+            '<h4 class="prop-mensaje-titulo">Envianos un mensaje</h4>' +
+            '<div class="prop-form">' +
+              '<input class="input" id="prop-input-nombre" placeholder="Nombre y apellido *">' +
+              '<input class="input" id="prop-input-telefono" placeholder="Teléfono *">' +
+              '<input class="input" id="prop-input-email" placeholder="Email *">' +
+              '<textarea class="input" id="prop-input-mensaje" rows="3" placeholder="Mensaje"></textarea>' +
+              '<button type="button" class="btn-dorado" id="prop-btn-contactar">Contactar</button>' +
+              '<p class="prop-form-msg" id="prop-form-msg" hidden></p>' +
+            '</div>' +
+          '</div>' +
+        '</aside>' +
+
+      '</div>' +
+    '</div>';
+
+  // Ver más / Ver menos de la descripción
+  var toggleDesc = document.getElementById('prop-toggle-descripcion');
+  var textoDesc = document.getElementById('prop-descripcion-texto');
+  if(toggleDesc && textoDesc){
+    toggleDesc.addEventListener('click', function(){
+      var abierto = textoDesc.classList.toggle('expandido');
+      toggleDesc.textContent = abierto ? 'Ver menos -' : 'Ver más +';
+    });
+  }
+
+  // Ocultar / mostrar Servicios, Amenities, Ambientes y Características
+  var toggleInfo = document.getElementById('prop-toggle-info');
+  var bloqueInfo = document.getElementById('prop-info-adicional');
+  if(toggleInfo && bloqueInfo){
+    toggleInfo.addEventListener('click', function(){
+      var oculto = bloqueInfo.classList.toggle('colapsado');
+      toggleInfo.textContent = oculto ? 'Ver más +' : 'Ocultar -';
+    });
+  }
+
+  // Formulario "Envianos un mensaje" (validación simple, sin backend)
+  var btnContactar = document.getElementById('prop-btn-contactar');
+  if(btnContactar){
+    btnContactar.addEventListener('click', function(){
+      var nombre = document.getElementById('prop-input-nombre').value.trim();
+      var telefono = document.getElementById('prop-input-telefono').value.trim();
+      var email = document.getElementById('prop-input-email').value.trim();
+      var msg = document.getElementById('prop-form-msg');
+
+      if(!nombre || !telefono || !email){
+        msg.textContent = 'Completá nombre, teléfono y email.';
+        msg.className = 'prop-form-msg error';
+        msg.hidden = false;
+        return;
+      }
+      msg.textContent = '¡Mensaje enviado! Te contactaremos a la brevedad.';
+      msg.className = 'prop-form-msg exito';
+      msg.hidden = false;
+      document.getElementById('prop-input-nombre').value = '';
+      document.getElementById('prop-input-telefono').value = '';
+      document.getElementById('prop-input-email').value = '';
+      document.getElementById('prop-input-mensaje').value = '';
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
