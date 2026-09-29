@@ -1,0 +1,135 @@
+/* =========================================================
+   AURA REAL ESTATE — pago.css
+   Estilos de la página de pago (formulario, resumen y
+   pantalla "PAGO NO PROCESADO")
+   ========================================================= */
+
+.pago-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  align-items: start;
+  padding-top: 170px;
+  padding-bottom: 96px;
+  min-height: calc(100vh - 140px);
+}
+
+/* ---------- Resumen de la operación ---------- */
+/* Columna izquierda */
+.pago-side { display: flex; flex-direction: column; gap: 24px; }
+.resumen-card { padding: 0; overflow: hidden; }
+.resumen-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.resumen-body { padding: 22px 24px 26px; }
+.resumen-label {
+  font-family: var(--font-nav);
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.resumen-body h2 { margin: 6px 0 4px; font-weight: 400; font-size: 1.5rem; color: var(--text); }
+.resumen-meta { display: flex; gap: 16px; color: var(--muted); font-size: .92rem; }
+.resumen-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.resumen-total strong { font-size: 1.5rem; font-weight: 400; color: var(--gold); }
+
+/* El precio y las medidas ahora se muestran en la tarjeta de detalle */
+.pago-side .resumen-meta,
+.pago-side .resumen-total { display: none; }
+.pago-side .resumen-body { padding-bottom: 22px; }
+
+/* ---------- Detalle de la propiedad ---------- */
+.detalle-card { padding: 26px 24px 28px; }
+.detalle-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.detalle-precio {
+  margin-top: 18px;
+  padding-left: 12px;
+  border-left: 3px solid var(--gold);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+.detalle-expensas { margin: 16px 0 20px; font-size: .92rem; color: var(--muted); }
+.detalle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 14px;
+}
+.detalle-grid li { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--muted); }
+.detalle-grid li b { font-weight: 600; color: var(--text); }
+.detalle-grid svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Formulario ---------- */
+.pago-content .section-sub { margin-bottom: 26px; }
+#pago-form { display: flex; flex-direction: column; gap: 20px; box-shadow: var(--shadow); }
+#pago-form .btn-primary { margin-top: 6px; padding: 14px; font-size: 1.05rem; }
+#pago-form .btn[disabled] { opacity: .6; cursor: wait; transform: none; }
+
+/* ---------- Pago no procesado (mockup) ---------- */
+.pago-fallido { background: transparent; border: none; padding: 0; }
+.fallido-title {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--panel-2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: .01em;
+  color: var(--danger);
+}
+.fallido-opciones { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin: 44px 0 36px 40px; }
+.fallido-opcion {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-size: 1.15rem;
+  color: var(--text);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.fallido-opcion:hover { color: var(--gold); border-color: var(--gold); }
+.fallido-nota { max-width: 520px; margin-left: 40px; color: var(--muted); }
+.fallido-cta { display: flex; flex-direction: column; gap: 14px; width: min(100%, 300px); margin: 32px 0 0 40px; }
+.fallido-cta .btn { justify-content: flex-start; padding: 13px 22px; font-family: var(--font-ui); letter-spacing: .02em; }
+
+/* ---------- Resultado (éxito, reserva, transferencia) ---------- */
+.pago-resultado { text-align: center; padding: 48px 32px; box-shadow: var(--shadow); }
+.pago-resultado h1 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; color: var(--gold); }
+.pago-resultado p { margin: 14px auto 28px; max-width: 460px; color: var(--muted); }
+.pago-resultado .btn { min-width: 220px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .pago-layout { grid-template-columns: 1fr; padding-top: 140px; }
+  .fallido-opciones, .fallido-nota, .fallido-cta { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .pago-layout { padding-top: 120px; }
+  .form-row { grid-template-columns: 1fr; }
+}
