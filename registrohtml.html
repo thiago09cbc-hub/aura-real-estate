@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear cuenta — Aura Real Estate</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/registro.css">
+</head>
+<body data-page="registro">
+
+<header id="site-header"></header>
+
+<main class="auth-wrap">
+  <div class="auth-card panel wide">
+    <div class="auth-avatar">
+      <img src="img/avatar.png" alt="" onerror="this.style.display='none'">
+    </div>
+    <h1 class="auth-title">Creá tu cuenta</h1>
+    <p class="auth-sub">Registrate como cliente para comprar, alquilar y agendar visitas.</p>
+
+    <form id="registro-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="r-nombre">Nombre completo</label>
+          <input type="text" id="r-nombre" placeholder="Nombre y apellido">
+          <span class="error-msg">Ingresá tu nombre completo.</span>
+        </div>
+        <div class="form-field">
+          <label for="r-dni">DNI</label>
+          <input type="text" id="r-dni" placeholder="30.123.456">
+          <span class="error-msg">Ingresá tu documento.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="r-telefono">Teléfono</label>
+          <input type="text" id="r-telefono" placeholder="+54 11 1234-5678">
+          <span class="error-msg">Ingresá un teléfono de contacto.</span>
+        </div>
+        <div class="form-field">
+          <label for="r-email">Correo electrónico</label>
+          <input type="email" id="r-email" placeholder="tu@correo.com">
+          <span class="error-msg">Ingresá un correo válido.</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="r-password">Contraseña</label>
+          <input type="password" id="r-password" placeholder="Mínimo 6 caracteres">
+          <span class="error-msg">La contraseña debe tener al menos 6 caracteres.</span>
+        </div>
+        <div class="form-field">
+          <label for="r-tipo">Me interesa</label>
+          <select id="r-tipo">
+            <option value="comprador">Comprar</option>
+            <option value="inquilino">Alquilar</option>
+            <option value="ambos" selected>Ambas opciones</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+    </form>
+
+    <p class="auth-foot">¿Ya tenés cuenta? <a href="login.html" class="gold">Iniciá sesión</a></p>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

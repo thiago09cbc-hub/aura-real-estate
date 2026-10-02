@@ -1,0 +1,91 @@
+# Aura Real Estate — Sitio web (Proyecto de Modelos y Sistemas)
+
+Sitio multipágina de una inmobiliaria, construido **solo con HTML, CSS y
+JavaScript** (sin backend ni base de datos real). Los datos se simulan con
+`localStorage`, siguiendo el **Diccionario de datos** entregado
+(`Diccionario_datos_inmobiliaria.xlsx`).
+
+## Cómo abrirlo
+
+No hace falta instalar nada. Alcanza con abrir `index.html` en el navegador,
+o servir la carpeta con cualquier servidor estático, por ejemplo:
+
+```bash
+python3 -m http.server 8000
+# luego entrar a http://localhost:8000
+```
+
+> Recomendado usar un servidor local (en vez de doble clic al archivo) para
+> que las rutas relativas y `localStorage` funcionen sin restricciones del
+> navegador.
+
+## Estructura de archivos
+
+```
+index.html            Página de inicio (hero, stats, destacadas)
+propiedades.html       Catálogo con buscador y filtros (sidebar tipo mock)
+propiedad.html         Detalle de una propiedad (?id=)
+construcciones.html    Listado de emprendimientos en construcción
+construccion.html      Detalle de un emprendimiento (?id=)
+login.html              Iniciar sesión
+registro.html           Alta de cliente
+nosotros.html            Institucional + equipo de agentes
+contacto.html            Formulario de contacto
+agendar-cita.html        Agendar visita a una propiedad
+pago.html                Checkout — incluye el estado "PAGO NO PROCESADO"
+confirmacion.html        Pantalla de éxito luego de comprar/alquilar/reservar
+mi-cuenta.html           Panel del cliente: compras, alquileres, pagos, citas
+
+css/base.css              Variables, reset y componentes compartidos
+css/<pagina>.css          Estilos propios de cada página
+
+js/app.js                 ÚNICO archivo JS del sitio: modelo de datos,
+                           autenticación, render de header/footer y lógica
+                           de cada página
+
+img/                      Imágenes reales extraídas del mock (logo, hero,
+                           depto Miami y Lugano) + imágenes de stock
+                           (Unsplash) para el resto del catálogo
+```
+
+## Modelo de datos (localStorage)
+
+`js/app.js` implementa las entidades del diccionario:
+`cliente, propietario, propiedad, agente, construccion, venta, alquiler,
+pago_alquiler`, con los mismos campos y valores de "Opciones" (enums)
+definidos en el Excel.
+
+Se agregaron un puñado de campos **solo de interfaz**, aclarados en el
+propio código, porque no existían en el diccionario pero son necesarios
+para que la demo funcione sin backend:
+
+- `propiedad.operacion_propiedad` (`venta` | `alquiler`) y
+  `propiedad.imagen_propiedad`: para saber qué botón mostrar y qué foto usar.
+- `construccion.imagen_construccion`.
+- `citas[]`: tabla simple para la función "Agendar cita" del mock
+  (no estaba en el diccionario original).
+- `mensajes[]`: mensajes del formulario de contacto.
+
+Al abrir el sitio por primera vez, `app.js` carga datos de ejemplo
+(propietarios, agentes, 12 propiedades, 4 emprendimientos, y un cliente
+demo) en `localStorage`. Se puede reiniciar todo borrando los datos del
+sitio en el navegador (o `localStorage.clear()` en la consola).
+
+## Cuenta de prueba
+
+- **Correo:** `demo@aura.com`
+- **Contraseña:** `demo123`
+
+También se puede crear una cuenta nueva desde `registro.html`.
+
+## Simulación de pago
+
+En `pago.html`, al confirmar el pago hay ~35% de probabilidad de que
+"falle" (a propósito, para reproducir la pantalla **PAGO NO PROCESADO**
+del mock), con las opciones: reintentar, usar otra tarjeta, pagar por
+transferencia (se acredita igual) o reservar con una seña del 5%. Si el
+pago se aprueba, se generan los registros de `venta` / `alquiler` /
+`pago_alquiler` correspondientes y se redirige a `confirmacion.html`.
+
+Ningún dato de tarjeta se guarda ni se envía a ningún servidor: todo
+ocurre en el navegador.
