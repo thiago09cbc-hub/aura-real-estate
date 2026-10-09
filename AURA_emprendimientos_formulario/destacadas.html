@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propiedades destacadas — Aura Real Estate</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/propiedades.css">
+<link rel="stylesheet" href="css/destacadas.css">
+</head>
+<body data-page="propiedades">
+
+<header id="site-header"></header>
+
+<main class="catalogo-layout container">
+  <!-- SIDEBAR (igual al mock: propiedades destacadas / agendar cita / catálogo) -->
+  <aside class="sidebar">
+    <a href="destacadas.html" class="sidebar-link active">⭐ Propiedades destacadas</a>
+    <a href="agendar-cita.html" class="sidebar-link">📅 Agendar cita</a>
+    <a href="propiedades.html" class="sidebar-link">🏠 Catálogo de propiedades</a>
+    <a href="construcciones.html" class="sidebar-link">🏗️ Emprendimientos</a>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <section class="catalogo-content">
+    <form id="dest-search" class="dest-search">
+      <input type="text" id="dest-search-input" placeholder="Buscar propiedades">
+      <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+    </form>
+
+    <div class="dest-stats" id="stats">
+      <div class="stat"><span class="stat-num" data-target="850" data-suffix="+">0</span><span class="stat-label">Propiedades</span></div>
+      <div class="stat"><span class="stat-num" data-target="12" data-suffix="K">0</span><span class="stat-label">Clientes diarios</span></div>
+      <div class="stat"><span class="stat-num" data-target="2.8" data-suffix="M">0</span><span class="stat-label">Ventas (M)</span></div>
+      <div class="stat"><span class="stat-num" data-target="98" data-suffix="%">0</span><span class="stat-label">Valoración</span></div>
+    </div>
+
+    <div class="dest-head">
+      <div>
+        <h1 class="section-title">Propiedades destacadas</h1>
+        <p class="section-sub">Una selección de las unidades disponibles con mejor ubicación y valorización.</p>
+      </div>
+      <a href="propiedades.html" class="btn btn-outline">Ver catálogo completo</a>
+    </div>
+
+    <div class="grid-cards" id="destacadas"></div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

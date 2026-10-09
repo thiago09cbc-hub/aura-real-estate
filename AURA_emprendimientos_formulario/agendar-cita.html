@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar cita — Aura Real Estate</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/agendar-cita.css">
+</head>
+<body data-page="agendarCita">
+
+<header id="site-header"></header>
+
+<main class="section container cita-wrap">
+  <div class="panel cita-card">
+    <h1 class="section-title">Agendar una visita</h1>
+    <p class="section-sub">Elegí la propiedad, la fecha y el horario. Un agente confirmará la cita a la brevedad.</p>
+
+    <form id="cita-form">
+      <div class="form-field">
+        <label for="cita-propiedad">Propiedad</label>
+        <select id="cita-propiedad"></select>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="cita-fecha">Fecha</label>
+          <input type="date" id="cita-fecha" required>
+        </div>
+        <div class="form-field">
+          <label for="cita-hora">Hora</label>
+          <input type="time" id="cita-hora" required value="10:00">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Confirmar cita</button>
+    </form>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

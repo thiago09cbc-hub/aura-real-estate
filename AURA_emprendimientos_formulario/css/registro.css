@@ -1,0 +1,23 @@
+/* =========================================================
+   AURA REAL ESTATE — registro.css
+   Pantalla "Creá tu cuenta" (formulario en dos columnas)
+   ========================================================= */
+.auth-card.wide {
+  width: min(100%, 720px);
+  padding: 40px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.auth-card.wide .auth-avatar { width: 84px; height: 84px; }
+.auth-card.wide .auth-avatar::after { width: 42px; height: 42px; }
+.auth-card.wide .auth-title { font-family: var(--font-title); font-size: 2.6rem; font-weight: 500; color: var(--gold); }
+.auth-card.wide form { gap: 18px; }
+.auth-card.wide .form-row { gap: 18px; }
+.auth-card.wide .form-message { margin-top: 4px; }
+
+@media (max-width: 600px) {
+  .auth-card.wide { padding: 26px 20px; }
+  .auth-card.wide .form-row { grid-template-columns: 1fr; }
+}
