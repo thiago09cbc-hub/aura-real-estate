@@ -258,3 +258,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--gold); }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ---------- Barra de avance de obra (emprendimientos) ---------- */
+.progress { margin-top: 16px; }
+.progress-top { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: .82rem; color: var(--muted); }
+.progress-top b { font-weight: 500; color: var(--gold); }
+.progress-bar { height: 8px; background: var(--panel-2); border-radius: 999px; overflow: hidden; }
+.progress-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold-hover)); border-radius: 999px; }

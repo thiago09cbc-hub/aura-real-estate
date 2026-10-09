@@ -8,40 +8,42 @@
   /* Catálogo completo (editá acá las propiedades) */
   const miles = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   const CATALOGO = [
-    { id: 1, titulo: 'Miami, Florida', tipo: 'departamento', operacion: 'venta', estado: 'disponible', precio: 12300500, totales: 350, cubiertos: 310, ambientes: 6, dormitorios: 4, banos: 4, toilet: 1, cocheras: 2, antiguedad: 5, expensas: 1850, img: 'img/miami.jpg',
-      desc: 'Amplio departamento frente al agua con living integrado a un balcón corrido y vista panorámica de la bahía. Cocina equipada, suite principal con vestidor y amenities de primer nivel.' },
+    { id: 1, titulo: 'NE 29th St, Miami', tipo: 'departamento', operacion: 'venta', estado: 'disponible', moneda: 'USD', precio: 1038900, totales: 88, cubiertos: 62, ambientes: 2, dormitorios: 1, banos: 1, toilet: 0, cocheras: 0, antiguedad: 0, expensas: 0, img: 'img/miami.jpg',
+      desc: 'Departamento a estrenar en NE 29th St, Miami. 88 m² totales y 62 m² cubiertos, 2 ambientes, 1 dormitorio y 1 baño. Orientación al frente, living integrado a la cocina y vista urbana.' },
     { id: 2, titulo: 'Lugano, Suiza', tipo: 'departamento', operacion: 'venta', estado: 'disponible', precio: 7860850, totales: 500, cubiertos: 420, ambientes: 7, dormitorios: 4, banos: 5, toilet: 2, cocheras: 3, antiguedad: 3, expensas: 2400, img: 'img/lugano.jpg',
       desc: 'Residencia de diseño con ventanales de piso a techo y vista abierta al lago y las montañas. Terminaciones en mármol, domótica integrada y servicio de conserjería.' },
     { id: 3, titulo: 'Palermo, Buenos Aires', tipo: 'departamento', operacion: 'alquiler', estado: 'disponible', precio: 1450, totales: 95, cubiertos: 88, ambientes: 3, dormitorios: 2, banos: 1, toilet: 1, cocheras: 1, antiguedad: 8, expensas: 210, img: 'img/living.jpg',
       desc: 'Luminoso departamento de tres ambientes a metros de los parques, con living de doble orientación y cocina independiente. Ideal para contrato anual.' },
     { id: 4, titulo: 'Nordelta, Tigre', tipo: 'casa', operacion: 'venta', estado: 'reservada', moneda: 'USD', precio: 1850000, totales: 500, cubiertos: 500, terreno: 2000, ambientes: 8, dormitorios: 5, banos: 3, toilet: 2, cocheras: 3, antiguedad: 26, expensas: 0, img: 'img/nordelta.jpg',
       desc: 'Casa de ladrillo a la vista en barrio cerrado, sobre un terreno de 2.000 m² con jardín y pileta. 500 m² cubiertos, 8 ambientes, 5 dormitorios y 3 cocheras.' },
-    { id: 5, titulo: 'Panamericana Km 90, Zárate', tipo: 'nave industrial', operacion: 'alquiler', estado: 'disponible', moneda: 'ARS', precio: 83000000, totales: 11000, cubiertos: 11000, terreno: 42000, ambientes: 0, dormitorios: 0, banos: 0, toilet: 0, cocheras: 0, antiguedad: 15, expensas: 0, img: 'img/zarate.jpg',
-      ubicacion: 'Panamericana Km 90 0, Zárate, Zárate, Buenos Aires',
-      desc: 'Alquiler de nave industrial completa de 11.000 m² en Zárate. Excepcional bloque logístico e industrial: un centro de operaciones premium sobre la Colectora Oeste de la Panamericana (Km 90), con 42.000 m² de terreno.' },
-    { id: 6, titulo: 'Pilar, Buenos Aires', tipo: 'terreno', operacion: 'venta', estado: 'disponible', precio: 210000, totales: 900, cubiertos: 0, ambientes: 0, dormitorios: 0, banos: 0, toilet: 0, cocheras: 0, antiguedad: null, expensas: 0, img: 'img/ph-terreno.jpg',
-      desc: 'Lote plano en barrio abierto con todos los servicios. Frente de 20 metros, ideal para vivienda unifamiliar.' },
-    { id: 7, titulo: 'Barcelona, España', tipo: 'departamento', operacion: 'venta', estado: 'vendida', precio: 640000, totales: 110, cubiertos: 102, ambientes: 4, dormitorios: 3, banos: 2, toilet: 0, cocheras: 1, antiguedad: 12, expensas: 260, img: 'img/ph-depto.jpg',
-      desc: 'Departamento reformado en el Eixample, con techos altos, balcón a la calle y cocina abierta.' },
-    { id: 8, titulo: 'Punta del Este, Uruguay', tipo: 'casa', operacion: 'alquiler', estado: 'alquilada', precio: 5200, totales: 410, cubiertos: 280, ambientes: 7, dormitorios: 5, banos: 4, toilet: 1, cocheras: 2, antiguedad: 9, expensas: 0, img: 'img/ph-casa.jpg',
-      desc: 'Casa de veraneo a pasos de la playa, con parque arbolado, piscina climatizada y barbacoa.' },
-    { id: 9, titulo: 'Torre Aura, Puerto Madero', tipo: 'departamento', operacion: 'venta', estado: 'en_construccion', precio: 350000, totales: 82, cubiertos: 74, ambientes: 3, dormitorios: 2, banos: 2, toilet: 0, cocheras: 1, antiguedad: 0, expensas: 0, img: 'img/ph-torre.jpg',
-      desc: 'Unidad en pozo dentro de Torre Aura, con entrega prevista para diciembre de 2027 y seguimiento online del avance de obra.' }
+    { id: 5, titulo: 'Panamericana Km 90, Zárate, Buenos Aires', tipo: 'nave industrial', operacion: 'alquiler', estado: 'disponible', precio: 83000000, moneda: 'ARS', totales: 11000, cubiertos: 11000, terreno: 42000, ambientes: 1, dormitorios: 0, banos: 0, toilet: 0, cocheras: 10, antiguedad: 15, expensas: 0, img: 'img/ph-local.jpg', desc: 'Alquiler Nave Industrial Completa 11.000 m² - Zárate. Excepcional bloque logístico / industrial sobre Colectora Oeste Panamericana (Km 90).', destacada: true },
+    { id: 6, titulo: 'Pilar, Buenos Aires', tipo: 'terreno', operacion: 'venta', estado: 'disponible', moneda: 'USD', precio: 42000, totales: 997, cubiertos: 0, terreno: 997, ambientes: 0, dormitorios: 0, banos: 0, toilet: 0, cocheras: 0, antiguedad: null, expensas: 0, img: 'img/pilar-marinas.jpg',
+      desc: 'Último lote en venta en Club de Campo Marinas del Pilar. 996,69 m² de terreno, el último disponible para construir dentro del club. Expensas: ARS 691.000. Ideal para vivienda unifamiliar en entorno privilegiado con amenities del country.' },
+    { id: 7, titulo: 'Barcelona, España', tipo: 'departamento', operacion: 'venta', estado: 'vendida', precio: 640000, totales: 295, cubiertos: 260, ambientes: 5, dormitorios: 4, banos: 4, toilet: 0, cocheras: 1, antiguedad: 62, expensas: 280, img: 'img/barcelona-tres-torres.jpg',
+      desc: 'Exquisito apartamento de diseño en el prestigioso barrio de Tres Torres, muy cerca de Turó Parc. 295 m² construidos (260 m² útiles) complementados por amplias terrazas de aprox. 45 m². Situado en la planta superior de un edificio de estilo retro de 1964, con orientación sur-oeste y cada habitación con orientación exterior. Cocina Poliform de diseño italiano, salón-comedor luminoso, 4 dormitorios, 4 baños, armarios empotrados, terraza y balcón, plaza de garaje incluida y calefacción individual por bomba de frío/calor. Segunda mano en buen estado.' },
+    { id: 8, titulo: 'Punta del Este, Uruguay', tipo: 'casa', operacion: 'venta', estado: 'disponible', moneda: 'USD', precio: 500000, totales: 326, cubiertos: 326, terreno: 833, ambientes: 4, dormitorios: 3, banos: 3, toilet: 0, cocheras: 2, antiguedad: 48, expensas: 0, img: 'img/punta-del-este.jpg',
+      desc: 'Casa en Punta del Este con 326 m² cubiertos sobre un terreno de 833 m², pileta, deck de madera y jardín arbolado. 4 ambientes, 3 dormitorios, 3 baños y 2 cocheras.' },
+    { id: 10, titulo: 'Andorra', tipo: 'casa', operacion: 'venta', estado: 'disponible', precio: 3000000, totales: 210, cubiertos: 210, terreno: 0, ambientes: 6, dormitorios: 4, banos: 3, toilet: 1, cocheras: 2, antiguedad: 2, expensas: 0, img: 'img/andorra.jpg', destacada: true,
+      desc: 'Casa contemporánea en Andorra de 210 m², con fachada de piedra, grandes ventanales y terraza con deck. Vista a la montaña, living integrado y espacios exteriores para estar.' },
+    { id: 9, titulo: 'Harbour Tower, Puerto Madero', tipo: 'departamento', operacion: 'venta', estado: 'en_construccion', moneda: 'USD', precio: 455000, totales: 72, cubiertos: 72, ambientes: 2, dormitorios: 1, banos: 1, toilet: 0, cocheras: 1, antiguedad: 0, expensas: 0, img: 'img/harbour-tower.jpg',
+      desc: 'Unidad en Harbour Tower, torre de 53 pisos y 194 m diseñada por Carlos Ott en el Dique 1 de Puerto Madero. En octubre de 2026 el edificio está en proceso de entrega de unidades, con apertura formal prevista para marzo de 2027. Precio estimado desde USD 455.000 (residencia convencional de 72 m²). Reventas cerca del piso 28: USD 7.000-9.000 por m². Penthouse (674 m²): USD 21 millones.' }
   ];
   /* Emprendimientos en construcción (editá acá los datos) */
   const EMPRENDIMIENTOS = [
-    { id: 1, nombre: 'Torre Aura', ubicacion: 'Puerto Madero, Buenos Aires', tipo: 'Torre residencial', avance: 62, entrega: 'Dic 2027', unidades: 84, disponibles: 31, desde: 350000, img: 'img/ph-torre.jpg',
-      desc: 'Torre de 28 pisos con departamentos de 2 a 4 ambientes, amenities con pileta cubierta, gimnasio y coworking, y vistas abiertas al río.' },
-    { id: 2, nombre: 'Barrio Los Olivos', ubicacion: 'Pilar, Buenos Aires', tipo: 'Barrio cerrado', avance: 35, entrega: 'Jun 2028', unidades: 120, disponibles: 74, desde: 98000, img: 'img/ph-barrio.jpg',
-      desc: 'Barrio cerrado con lotes desde 600 m², club house, canchas deportivas y seguridad las 24 horas, rodeado de espacios verdes.' },
-    { id: 3, nombre: 'Aura Costa', ubicacion: 'Mar del Plata, Buenos Aires', tipo: 'Complejo frente al mar', avance: 81, entrega: 'Mar 2027', unidades: 46, disponibles: 12, desde: 210000, img: 'img/ph-complejo.jpg',
-      desc: 'Complejo de departamentos a metros de la playa, con solárium, pileta y cocheras cubiertas. Últimas unidades disponibles.' },
-    { id: 4, nombre: 'Loft Palermo Soho', ubicacion: 'Palermo, Buenos Aires', tipo: 'Lofts', avance: 12, entrega: 'Nov 2028', unidades: 28, disponibles: 25, desde: 145000, img: 'img/ph-loft.jpg',
-      desc: 'Lofts de doble altura con ventanales de arco y terrazas privadas, en el corazón del barrio más vibrante de la ciudad.' }
+    { id: 1, nombre: 'Harbour Tower', ubicacion: 'Puerto Madero, Buenos Aires', tipo: 'Torre residencial', avance: 96, entrega: 'Mar 2027', unidades: 217, disponibles: 6, desde: 455000, img: 'img/harbour-tower.jpg',
+      desc: 'Harbour Tower: 53 pisos y 194 m, diseñada por Carlos Ott en el Dique 1 de Puerto Madero. En octubre de 2026 la torre está en proceso de entrega: las últimas plantas ya se entregaron y el cronograma apunta a completar las unidades hacia fines de febrero, con apertura formal en marzo de 2027. 217 residencias y más de 1.800 m² de amenities. Desde USD 455.000 por una residencia convencional. Penthouse (pisos 52-53, 674 m²): USD 21 millones.' },
+    { id: 2, nombre: 'Barrio Los Olivos', ubicacion: 'Pilar, Buenos Aires', tipo: 'Casa en construcción', avance: 35, entrega: 'Jun 2028', unidades: 1, disponibles: 1, desde: 295000, img: 'img/los-olivos.jpg',
+      totales: 460, cubiertos: 170, ambientes: 2, banos: 4, cocheras: 2, dormitorios: 3,
+      desc: 'Casa en construcción en Barrio Los Olivos, Pilar. 460 m² totales y 170 m² cubiertos, 2 ambientes, 3 dormitorios, 4 baños y 2 cocheras. Precio estimado USD 295.000, en línea con casas de barrio cerrado en Pilar (mediana del partido cerca de USD 245.000; unidades de 170 m² cubiertos y 3 dormitorios se ubican en torno a USD 280.000-320.000).' },
+    { id: 3, nombre: 'Casino Central y Hotel Provincial', ubicacion: 'Mar del Plata, Buenos Aires', tipo: 'Conjunto frente al mar', avance: 81, entrega: 'Mar 2027', unidades: 46, disponibles: 12, desde: 210000, img: 'img/aura-costa.jpg',
+      desc: 'Conjunto Casino Central y Gran Hotel Provincial, en la Rambla Casino de Mar del Plata, frente a Playa Bristol. Proyectado por Alejandro Bustillo (Casino 1938-1941, Hotel 1942-1948). Monumento Histórico Nacional (Decreto 349/1999): ladrillo visto, piedra Mar del Plata y mansardas de pizarra, sobre el Boulevard Marítimo Patricio Peralta Ramos. Incluye casino, hotel, teatro y galerías.' },
+    { id: 4, nombre: 'Loft Palermo Soho', ubicacion: 'Palermo, Buenos Aires', tipo: 'Loft a estrenar', avance: 99, entrega: 'A estrenar', unidades: 1, disponibles: 1, desde: 185000, img: 'img/loft-palermo.jpg',
+      totales: 48, cubiertos: 43, ambientes: 1, banos: 1, dormitorios: 1, estadoTxt: 'A estrenar',
+      desc: 'Loft a estrenar en Palermo Soho, al 99% de construcción. 48 m² totales y 43 m² cubiertos, 1 ambiente, 1 dormitorio y 1 baño. Precio estimado USD 185.000: en Palermo el m² mediano ronda los USD 3.700 y las unidades a estrenar cerca de USD 4.070; un loft similar de 48 m² se publica en torno a USD 169.000.' }
   ];
   const ESTADO_TXT = { disponible: 'Disponible', reservada: 'Reservada', vendida: 'Vendida', alquilada: 'Alquilada', en_construccion: 'En construcción' };
   const eur = n => '€' + miles(n);
-  const fmtPrecio = (n, moneda) => (moneda === 'USD' || moneda === 'ARS') ? miles(n) + ' ' + moneda : '€' + miles(n);
+  const fmtPrecio = (n, moneda) => moneda === 'USD' ? miles(n) + ' USD' : '€' + miles(n);
   const plural = (n, s, p) => (n === 1 ? s : p);
   const escHTML = t => String(t == null ? '' : t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -63,8 +65,8 @@
     antig:     '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/>'
   };
   function featuresPropiedad(p) {
-    const a = [['totales', miles(p.totales), 'm² totales']];
-    if (p.cubiertos) a.push(['cubiertos', miles(p.cubiertos), 'm² cubiertos']);
+    const a = [['totales', p.totales, 'm² totales']];
+    if (p.cubiertos) a.push(['cubiertos', p.cubiertos, 'm² cubiertos']);
     if (p.terreno) a.push(['terreno', miles(p.terreno), 'm² terreno']);
     if (p.ambientes) a.push(['ambientes', p.ambientes, 'ambientes']);
     if (p.banos) a.push(['banos', p.banos, plural(p.banos, 'baño', 'baños')]);
@@ -86,7 +88,7 @@
       '<span class="badge badge-estado estado-' + est + '">' + ESTADO_TXT[est] + '</span>' +
       '<div class="card-body">' +
         '<div class="card-row"><h3>' + escHTML(p.titulo) + '</h3>' +
-          '<div class="card-meta"><span>' + miles(p.totales) + ' m²</span>' + (p.dormitorios ? '<span>' + p.dormitorios + ' hab.</span>' : '') + '</div></div>' +
+          '<div class="card-meta"><span>' + p.totales + ' m²</span>' + (p.dormitorios ? '<span>' + p.dormitorios + ' hab.</span>' : '') + '</div></div>' +
         '<p class="card-price">' + fmtPrecio(p.precio, p.moneda) + (p.operacion === 'alquiler' ? ' / mes' : '') + '</p>' +
       '</div></a>';
   }
@@ -123,7 +125,7 @@
       { href: 'propiedades.html', label: 'Propiedades', key: 'propiedades' },
       { href: 'construcciones.html', label: 'Emprendimientos', key: 'construcciones' },
       { href: 'nosotros.html', label: 'Nosotros', key: 'nosotros' },
-      { href: 'index.html#contacto', label: 'Contacto', key: 'contacto' }
+      { href: 'contacto.html', label: 'Contacto', key: 'contacto' }
     ];
     header.innerHTML =
       '<div class="nav">' +
@@ -155,7 +157,7 @@
   /* ---------- Propiedades destacadas (página destacadas.html) ---------- */
   const destacadas = document.getElementById('destacadas');
   if (destacadas) {
-    const dest = CATALOGO.filter(p => p.operacion === 'venta' && estaLibre(p)).slice(0, 2);
+    const dest = CATALOGO.filter(p => p.destacada && estaLibre(p)).concat(CATALOGO.filter(p => !p.destacada && p.operacion === 'venta' && estaLibre(p))).slice(0, 4);
     destacadas.innerHTML = dest.map(tarjetaProp).join('');
   }
   const destSearch = document.getElementById('dest-search');
@@ -348,7 +350,6 @@
           '<h1 class="prop-title">' + escHTML(p.titulo) + '</h1>' +
           '<p class="prop-sub">' + escHTML(p.tipo) + ' · ' + (esVenta ? 'en venta' : 'en alquiler') + '</p>' +
           '<p class="prop-desc">' + escHTML(p.desc) + '</p>' +
-          (p.ubicacion ? '<div class="prop-ubic"><h2>Ubicación</h2><p>' + escHTML(p.ubicacion) + '</p></div>' : '') +
         '</div>' +
         '<aside class="panel prop-side">' +
           '<span class="detalle-tag">' + (esVenta ? 'Venta' : 'Alquiler') + '</span>' +
@@ -470,7 +471,7 @@
           '<p class="emp-loc">' + escHTML(e.ubicacion) + '</p>' +
           '<div class="progress"><div class="progress-top"><span>Avance de obra</span><b>' + e.avance + '%</b></div>' +
             '<div class="progress-bar"><i style="width:' + e.avance + '%"></i></div></div>' +
-          '<p class="card-price"><small>Desde</small> ' + eur(e.desde) + '</p>' +
+          '<p class="card-price"><small>Desde</small> ' + miles(e.desde) + ' USD</p>' +
         '</div></a>').join('');
   }
 
@@ -501,31 +502,24 @@
         '</div>' +
         '<aside class="panel emp-side">' +
           '<span class="detalle-tag">En pozo</span>' +
-          '<p class="detalle-precio"><small>Desde</small> ' + eur(e.desde) + '</p>' +
+          '<p class="detalle-precio"><small>Desde</small> ' + miles(e.desde) + ' USD</p>' +
           '<div class="progress"><div class="progress-top"><span>Avance de obra</span><b>' + e.avance + '%</b></div>' +
             '<div class="progress-bar"><i style="width:' + e.avance + '%"></i></div></div>' +
-          '<p class="detalle-expensas">Seña de reserva: ' + eur(Math.round(e.desde * 0.1)) + ' (10%)</p>' +
-          featureGrid([['antig', e.entrega, 'entrega estimada'], ['ambientes', e.unidades, 'unidades'], ['totales', e.disponibles, 'disponibles'], ['cubiertos', e.avance + '%', 'de avance']]) +
+          '<p class="detalle-expensas">Seña de reserva: ' + miles(Math.round(e.desde * 0.1)) + ' USD (10%)</p>' +
+          featureGrid((function () {
+            if (!e.totales) return [['antig', e.entrega, 'entrega estimada'], ['ambientes', e.unidades, 'unidades'], ['totales', e.disponibles, 'disponibles'], ['cubiertos', e.avance + '%', 'de avance']];
+            const items = [['totales', e.totales, 'm² totales'], ['cubiertos', e.cubiertos, 'm² cubiertos'], ['ambientes', e.ambientes, 'ambientes']];
+            if (e.banos) items.push(['banos', e.banos, plural(e.banos, 'baño', 'baños')]);
+            if (e.cocheras) items.push(['cochera', e.cocheras, plural(e.cocheras, 'cochera', 'cocheras')]);
+            if (e.dormitorios) items.push(['dormitorio', e.dormitorios, plural(e.dormitorios, 'dormitorio', 'dormitorios')]);
+            items.push(['antig', e.estadoTxt || 'En construcción', '']);
+            return items;
+          })()) +
           '<div class="emp-cta"><a class="btn btn-primary" href="pago.html?emp=' + e.id + '">Reservar unidad</a>' +
             '<a class="btn btn-outline" href="agendar-cita.html?emp=' + e.id + '">Agendar visita</a></div>' +
           '<p class="emp-nota">Reservá con una seña menor y contá con 24 horas para completar la operación.</p>' +
         '</aside></div>';
     }
-  }
-
-
-  /* ---------- Contacto en el inicio: menú activo y tecla Esc ---------- */
-  if (page === 'index' && document.getElementById('contacto')) {
-    const marcarMenu = () => {
-      const abierto = location.hash === '#contacto';
-      document.querySelectorAll('#site-header nav a').forEach(a => {
-        const href = a.getAttribute('href');
-        a.classList.toggle('active', abierto ? href === 'index.html#contacto' : href === 'index.html');
-      });
-    };
-    window.addEventListener('hashchange', marcarMenu);
-    marcarMenu();
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && location.hash === '#contacto') window.location.hash = ''; });
   }
 
   /* ---------- Contadores animados ---------- */
@@ -567,8 +561,9 @@
   const cform = document.getElementById('contacto-form');
   if (cform) {
     const campos = {
-      nombre:  { el: document.getElementById('Nombre'),  msg: 'Ingresá tu nombre.' },
-      mensaje: { el: document.getElementById('mensaje'), msg: 'Escribí tu mensaje (mínimo 10 caracteres).' }
+      nombre:  { el: document.getElementById('c-nombre'),  msg: 'Ingresá tu nombre.' },
+      email:   { el: document.getElementById('c-email'),   msg: 'Ingresá un correo válido.' },
+      mensaje: { el: document.getElementById('c-mensaje'), msg: 'Escribí tu mensaje (mínimo 10 caracteres).' }
     };
     const box = document.createElement('div');
     box.className = 'form-message';
@@ -590,6 +585,7 @@
     function valido(k) {
       const v = campos[k].el.value.trim();
       if (k === 'nombre')  return v.length >= 2;
+      if (k === 'email')   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
       return v.length >= 10;
     }
     Object.keys(campos).forEach(k => campos[k].el.addEventListener('input', () => {
@@ -639,8 +635,8 @@
     if (detalleBox && emp) {
       detalleBox.innerHTML =
         '<span class="detalle-tag">En pozo</span>' +
-        '<p class="detalle-precio">' + eur(sena) + '</p>' +
-        '<p class="detalle-expensas">Seña de reserva (10% del precio desde ' + eur(emp.desde) + ')</p>' +
+        '<p class="detalle-precio">' + miles(sena) + ' USD</p>' +
+        '<p class="detalle-expensas">Seña de reserva (10% del precio desde ' + miles(emp.desde) + ' USD)</p>' +
         featureGrid([['antig', emp.entrega, 'entrega estimada'], ['ambientes', emp.unidades, 'unidades'], ['totales', emp.disponibles, 'disponibles'], ['cubiertos', emp.avance + '%', 'de avance']]);
     } else if (detalleBox && infoProp) {
       detalleBox.innerHTML =
