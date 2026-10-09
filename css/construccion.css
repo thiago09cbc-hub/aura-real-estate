@@ -1,0 +1,51 @@
+/* =========================================================
+   AURA REAL ESTATE — construccion.css
+   Detalle de un emprendimiento: foto, descripción, avance y reserva
+   ========================================================= */
+main.section { padding-top: 160px; padding-bottom: 96px; min-height: calc(100vh - 140px); }
+
+.back-link { display: inline-block; margin-bottom: 22px; font-size: .95rem; color: var(--muted); transition: color .2s; }
+.back-link:hover { color: var(--gold); }
+.empty { color: var(--muted); }
+.empty a { color: var(--gold); }
+
+.emp-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+
+/* Foto y textos */
+.emp-hero { position: relative; border-radius: var(--radius-lg); overflow: hidden; }
+.emp-hero img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.emp-hero .badge { top: 16px; padding: 6px 14px; font-size: .85rem; }
+.emp-hero .badge-op { left: 16px; }
+.emp-hero .badge-estado { right: 16px; }
+.emp-title { margin-top: 28px; font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: var(--gold); }
+.emp-sub { margin-top: 4px; color: var(--muted); }
+.emp-desc { margin-top: 18px; max-width: 640px; color: #c5cbd6; line-height: 1.7; }
+
+/* Panel lateral */
+.emp-side { padding: 28px 26px 30px; position: sticky; top: 24px; }
+.emp-side .detalle-precio small { font-size: .9rem; font-weight: 400; color: var(--muted); }
+.emp-side .progress { margin: 22px 0 6px; }
+.emp-side .progress-bar { height: 10px; }
+.emp-side .detalle-expensas { margin: 14px 0 20px; }
+.emp-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+.emp-nota { margin-top: 16px; font-size: .82rem; color: var(--muted); text-align: center; }
+
+/* Seguimiento de obra */
+.timeline { margin-top: 40px; }
+.timeline h2 { margin-bottom: 20px; font-family: var(--font-title); font-weight: 500; font-size: 1.8rem; color: var(--gold); }
+.timeline-list { position: relative; display: flex; flex-direction: column; gap: 22px; padding-left: 34px; }
+.timeline-list::before { content: ''; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.tl-item { position: relative; }
+.tl-item::before { content: ''; position: absolute; left: -34px; top: 3px; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line); }
+.tl-item.done::before { background: var(--gold); border-color: var(--gold); }
+.tl-item.done::after { content: '✓'; position: absolute; left: -27px; top: 4px; font-size: .8rem; font-weight: 700; color: #000; }
+.tl-item.current::before { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, .2); }
+.tl-item b { display: block; font-weight: 500; }
+.tl-item span { font-size: .88rem; color: var(--muted); }
+.tl-item.pending b { color: var(--muted); }
+
+@media (max-width: 900px) {
+  main.section { padding-top: 200px; }
+  .emp-layout { grid-template-columns: 1fr; }
+  .emp-side { position: static; }
+}
