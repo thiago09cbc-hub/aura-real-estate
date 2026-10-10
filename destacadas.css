@@ -1,0 +1,25 @@
+/* =========================================================
+   AURA REAL ESTATE — destacadas.css
+   Página "Propiedades destacadas" (a la que lleva "Ver propiedades").
+   Usa el sidebar y la grilla de propiedades.css.
+   ========================================================= */
+
+/* Buscador (pastilla oscura, como el mockup) */
+.dest-search { display: flex; gap: 10px; align-items: center; padding: 6px; background: #000; border: 1px solid var(--line); border-radius: 999px; }
+.dest-search input { flex: 1; background: transparent; border: none; border-radius: 999px; padding: 12px 22px; font-size: 1.05rem; }
+.dest-search .btn { border-radius: 999px; padding: 10px 26px; }
+
+/* Estadísticas */
+.dest-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0 44px; }
+.dest-stats .stat { display: flex; flex-direction: column-reverse; gap: 4px; padding: 18px 22px; background: var(--panel); border-radius: var(--radius); }
+.dest-stats .stat-label { font-size: .9rem; color: var(--muted); }
+.dest-stats .stat-num { font-size: 2rem; font-weight: 400; line-height: 1.1; color: var(--text); }
+
+/* Encabezado de la sección */
+.dest-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+
+/* Tarjetas destacadas: dos columnas */
+.catalogo-content #destacadas { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+@media (max-width: 900px) { .dest-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .dest-head { flex-direction: column; align-items: flex-start; } }

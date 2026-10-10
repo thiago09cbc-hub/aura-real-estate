@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propiedades — Aura Real Estate</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/propiedades.css">
+</head>
+<body data-page="propiedades">
+
+<header id="site-header"></header>
+
+<main class="catalogo-layout container">
+  <!-- SIDEBAR (igual al mock: propiedades destacadas / agendar cita / catálogo) -->
+  <aside class="sidebar">
+    <div class="sidebar-block">
+      <h4><a href="destacadas.html">Propiedades destacadas</a></h4>
+      <p>850+ unidades activas en toda la plataforma.</p>
+    </div>
+    <a href="agendar-cita.html" class="sidebar-link">📅 Agendar cita</a>
+    <a href="propiedades.html" class="sidebar-link active">🏠 Catálogo de propiedades</a>
+    <a href="construcciones.html" class="sidebar-link">🏗️ Emprendimientos</a>
+
+    <div class="sidebar-stats">
+      <div class="mini-stat"><span>Propiedades</span><b id="stat-propiedades">850+</b></div>
+      <div class="mini-stat"><span>Clientes diarios</span><b>12K</b></div>
+      <div class="mini-stat"><span>Ventas (M)</span><b>2.8M</b></div>
+      <div class="mini-stat"><span>Valoración</span><b>98%</b></div>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <section class="catalogo-content">
+    <form id="filtros-form" class="filtros-bar">
+      <input type="text" id="f-buscar" placeholder="Buscar propiedades por dirección, barrio o ciudad...">
+      <select id="f-tipo">
+        <option value="">Tipo</option>
+        <option value="casa">Casa</option>
+        <option value="departamento">Departamento</option>
+        <option value="local">Local</option>
+        <option value="terreno">Terreno</option>
+      </select>
+      <select id="f-operacion">
+        <option value="">Operación</option>
+        <option value="venta">Venta</option>
+        <option value="alquiler">Alquiler</option>
+      </select>
+      <select id="f-estado">
+        <option value="">Estado</option>
+        <option value="disponible">Disponible</option>
+        <option value="reservada">Reservada</option>
+        <option value="vendida">Vendida</option>
+        <option value="alquilada">Alquilada</option>
+        <option value="en_construccion">En construcción</option>
+      </select>
+      <input type="number" id="f-precio" placeholder="Precio máximo">
+      <button type="button" id="f-limpiar" class="btn btn-ghost btn-sm">Limpiar</button>
+    </form>
+
+    <p id="result-count" class="result-count"></p>
+    <div class="grid-cards" id="prop-grid"></div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
