@@ -1,0 +1,73 @@
+/* =========================================================
+   AURA REAL ESTATE — contacto.css
+   Estilos de la página de contacto
+   ========================================================= */
+
+/* El header es absoluto: dejamos espacio arriba para que no tape el contenido */
+.contacto-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+  padding-top: 170px;
+  padding-bottom: 96px;
+  min-height: calc(100vh - 140px);
+}
+
+/* ---------- Columna de información ---------- */
+.contacto-info .section-title {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+.contacto-info .section-sub { font-size: 1.05rem; max-width: 480px; }
+
+.info-list { margin-top: 36px; display: grid; gap: 14px; }
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 22px;
+  background: var(--panel);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: background .2s, transform .2s;
+}
+.info-item:hover { background: var(--panel-2); transform: translateX(4px); }
+.info-item b {
+  font-family: var(--font-nav);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.info-item span { font-size: 1.05rem; color: var(--text); }
+
+/* ---------- Formulario ---------- */
+.contacto-form { display: flex; flex-direction: column; gap: 20px; box-shadow: var(--shadow); }
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field label { font-size: .9rem; color: var(--muted); }
+.contacto-form textarea { resize: vertical; min-height: 130px; line-height: 1.5; }
+.contacto-form .btn-primary { margin-top: 6px; padding: 14px; font-size: 1.05rem; }
+
+/* Estados de validación */
+.form-field.error input,
+.form-field.error textarea { border-color: var(--danger); }
+.field-error { font-size: .85rem; color: var(--danger); }
+.form-message {
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: .95rem;
+  text-align: center;
+}
+.form-message.ok { background: rgba(212, 175, 55, .12); border: 1px solid var(--gold); color: var(--gold); }
+.form-message.fail { background: rgba(239, 68, 68, .1); border: 1px solid var(--danger); color: var(--danger); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contacto-layout { grid-template-columns: 1fr; gap: 40px; padding-top: 140px; }
+}
+@media (max-width: 600px) {
+  .contacto-layout { padding-top: 120px; }
+  .panel { padding: 22px; }
+}
